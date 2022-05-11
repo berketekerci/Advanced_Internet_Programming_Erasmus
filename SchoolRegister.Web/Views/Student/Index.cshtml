@@ -1,0 +1,40 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@using SchoolRegister.ViewModels.VM
+@model IEnumerable<StudentVm>
+@{
+    ViewData["Title"] = @Localizer["Students"];
+}
+<h2>@ViewData["Title"]</h2>
+<div class="row">
+    <div class="col-4">
+        <div class="form-group">
+            <input class="students-filter-input form-control" type="text" placeholder="filter" />
+        </div>
+    </div>
+</div>
+<table class="table students-table">
+    <thead>
+        <tr>
+            <th>
+                @Localizer["FirstName"]
+            </th>
+            <th>
+                @Localizer["LastName"]
+            </th>
+            <th>
+                @Localizer["ParentName"]
+            </th>
+            <th>
+                @Localizer["GroupName"]
+            </th>
+            <th>
+                @Localizer["AverageGrade"]
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody class="students-table-data">
+        <partial name="_StudentsTableDataPartial" model="Model" />
+    </tbody>
+</table>
